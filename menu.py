@@ -1,9 +1,20 @@
-import sys, final_percentage
+import sys
+from final_percentage import*
 
 print("Final Grade Calculator")
 print('')
 
 # TODO: make sqlite3 database, run object when called on with "View Prevous Calculations"
+# TODO: make database file; make database class to update, store, retrive info from database
+
+def defualt_input_percentage():
+    class_name = input("Enter the name of the class: ")
+    current_grade = float(input("Enter your Current Grade (%): "))
+    final_worth = float(input("Enter Final Worth (%): "))
+    goal = float(input("Enter your Goal (%): "))
+
+    return class_name, current_grade, final_worth, goal
+
 
 while True:
     print("Choose one Option: ")
@@ -21,14 +32,23 @@ while True:
     value = input("Enter Choice #: ")
 
     if value == "A1":
-        class_name = input("Enter the name of the class: ")
-        current_grade = input("Enter your Current Grade (%): ")
-        final_worth = input("Enter Final Worth (%): ")
-        goal = input("Enter your Goal (%): ")
+        class_name, current_grade, final_worth, goal = defualt_input_percentage()
 
         # TODO: store entries in sqlite3 database with class_name, and unique number
 
         entry = final_percentage(class_name, current_grade, final_worth, goal)
+
+    if value == "A2":
+        class_name, current_grade, final_worth, goal = defualt_input_percentage()
+
+        num_test = float(input("Enter # of Test: "))
+        test_worth = float(input("Enter Test Category Worth (%): "))
+        test_avg = float(input("Enter Test Category Avarage (%): "))
+        low_test = float(input("Enter Lowest Test (%): "))
+
+        # TODO: store entries in sqlite3 database with class_name, and unique number
+
+        entry = final_percentage_lowest_drop(class_name, current_grade, final_worth, goal, num_test, test_worth, test_avg, low_test)
     
     else:
         sys.exit()
