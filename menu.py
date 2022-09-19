@@ -15,6 +15,11 @@ def defualt_input_percentage():
 
     return class_name, current_grade, final_worth, goal
 
+def end_pause():
+    print('')
+    input("Press enter to continue...")
+    print ('')
+
 
 while True:
     print("Choose one Option: ")
@@ -37,8 +42,12 @@ while True:
         # TODO: store entries in sqlite3 database with class_name, and unique number
 
         entry = final_percentage(class_name, current_grade, final_worth, goal)
+        entry.calculate_need_grd()
 
-    if value == "A2":
+        entry.need_grd_print()
+        end_pause()
+
+    elif value == "A2":
         class_name, current_grade, final_worth, goal = defualt_input_percentage()
 
         num_test = float(input("Enter # of Test: "))
@@ -49,6 +58,10 @@ while True:
         # TODO: store entries in sqlite3 database with class_name, and unique number
 
         entry = final_percentage_lowest_drop(class_name, current_grade, final_worth, goal, num_test, test_worth, test_avg, low_test)
+        entry.calculate_need_grd()
+
+        entry.need_grd_print()
+        end_pause()
     
     else:
         sys.exit()
