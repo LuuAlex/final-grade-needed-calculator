@@ -1,5 +1,6 @@
 import sys
-from final_percentage import*
+from final_percentage import *
+from final_points import *
 
 print("Final Grade Calculator")
 print('')
@@ -14,6 +15,14 @@ def defualt_input_percentage():
     goal = float(input("Enter your Goal (%): "))
 
     return class_name, current_grade, final_worth, goal
+
+def default_input_points():
+    class_name = input("Enter the name of the class: ")
+    current_grade = float(input("Enter your Current Amount of Points: "))
+    total_points = float(input("Enter Total Amount of Points Possible: "))
+    goal = float(input("Enter your Goal Amount of Points: "))
+
+    return class_name, current_grade, total_points, goal
 
 def end_pause():
     print('')
@@ -62,6 +71,17 @@ while True:
 
         entry.need_grd_print()
         end_pause()
+
+    
+    elif value == "B1":
+        class_name, current_grade, total_points, goal = default_input_points()
+        
+        entry = final_points(class_name, current_grade, total_points, goal)
+        entry.calculate_need_grd()
+        
+        entry.need_grd_print()
+        end_pause()
+
     
     else:
         sys.exit()
