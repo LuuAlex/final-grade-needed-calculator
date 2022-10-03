@@ -83,8 +83,11 @@ while True:
     
     elif value == "B3":
         class_name, current_grade, total_points, goal = default_input_points()
+
+        drop_test_worth = float(input("Enter Lowest Test/Quiz/Midterm Worth in Points: "))
+        drop_test_score = float(input("Enter Losest Test/Quiz/Midterm Score in Points: "))
         
-        entry = final_points(class_name, current_grade, total_points, goal)
+        entry = final_points_lowest_full_replacement(class_name, current_grade, total_points, goal, drop_test_worth, drop_test_score)
         entry.calculate_need_grd()
         
         entry.need_grd_print()
