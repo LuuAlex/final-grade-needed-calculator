@@ -37,8 +37,7 @@ while True:
     print("A3- Final is Worth a Percentage of Grade w/ Lowest Test/Quiz/Midterm Full Score Replacement")
     print("A4- Final is Worth a Percentage of Grade w/ Lowest Test/Quiz/Midterm Partial Score Replacement (using final percentile equivalent)")
     print("B1- Final is Worth Points of Grade")
-    print("B2- Final is Worth Points of Grade w/ Lowest Test/Quiz/Midterm Drop")
-    print("B3- Final is Worth Points of Grade w/ Lowest Test/Quiz/Midterm Full Score Replacement")
+    print("B3- Final is Worth Points of Grade w/ Lowest Test/Quiz/Midterm Drop Full Score Replacement")
     print("B4- Final is Worth Points of Grade w/ Lowest Test/Quiz/Midterm Partial Score Replacement (using final percentile equivalent)")
     print("0 - View Previous Calculations")
     print("Any Other Input- Exit")
@@ -74,6 +73,15 @@ while True:
 
     
     elif value == "B1":
+        class_name, current_grade, total_points, goal = default_input_points()
+        
+        entry = final_points(class_name, current_grade, total_points, goal)
+        entry.calculate_need_grd()
+        
+        entry.need_grd_print()
+        end_pause()
+    
+    elif value == "B3":
         class_name, current_grade, total_points, goal = default_input_points()
         
         entry = final_points(class_name, current_grade, total_points, goal)
