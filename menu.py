@@ -69,7 +69,7 @@ while True:
 
         num_test = float(input("Enter # of Test: "))
         test_worth = float(input("Enter Test Category Worth (%): "))
-        test_avg = float(input("Enter Test Category Avarage (%): "))
+        test_avg = float(input("Enter Test Category Average (%): "))
         low_test = float(input("Enter Lowest Test (%): "))
 
         # TODO: store entries in sqlite3 database with class_name, and unique number
