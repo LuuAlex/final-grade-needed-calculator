@@ -20,9 +20,10 @@ def default_input_points():
     class_name = input("Enter the name of the class: ")
     current_grade = float(input("Enter your Current Amount of Points: "))
     total_points = float(input("Enter Total Amount of Points Possible: "))
+    final_worth = float(input("Enter Final Point Worth: "))
     goal = float(input("Enter your Goal Amount of Points: "))
 
-    return class_name, current_grade, total_points, goal
+    return class_name, current_grade, total_points, final_worth, goal
 
 def end_pause():
     print('')
@@ -73,21 +74,21 @@ while True:
 
     
     elif value == "B1":
-        class_name, current_grade, total_points, goal = default_input_points()
+        class_name, current_grade, total_points, final_worth, goal = default_input_points()
         
-        entry = final_points(class_name, current_grade, total_points, goal)
+        entry = final_points(class_name, current_grade, total_points, final_worth, goal)
         entry.calculate_need_grd()
         
         entry.need_grd_print()
         end_pause()
     
     elif value == "B3":
-        class_name, current_grade, total_points, goal = default_input_points()
+        class_name, current_grade, total_points, final_worth, goal = default_input_points()
 
         drop_test_worth = float(input("Enter Lowest Test/Quiz/Midterm Worth in Points: "))
         drop_test_score = float(input("Enter Losest Test/Quiz/Midterm Score in Points: "))
         
-        entry = final_points_lowest_full_replacement(class_name, current_grade, total_points, goal, drop_test_worth, drop_test_score)
+        entry = final_points_lowest_full_replacement(class_name, current_grade, total_points, final_worth, goal, drop_test_worth, drop_test_score)
         entry.calculate_need_grd()
         
         entry.need_grd_print()
