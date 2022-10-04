@@ -78,7 +78,6 @@ while True:
         entry.need_grd_print()
         end_pause()
 
-
     elif value == "B1":
         class_name, current_grade, total_points, final_worth, goal = default_input_points()
 
@@ -100,7 +99,6 @@ while True:
 
         entry.need_grd_print()
         end_pause()
-
 
     else:
         sys.exit()
