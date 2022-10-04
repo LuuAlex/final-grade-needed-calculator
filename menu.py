@@ -9,6 +9,7 @@ print('')
 # TODO: make sqlite3 database, run object when called on with "View Previous Calculations"
 # TODO: make database file; make database class to update, store, retrieve info from database
 
+# Default input for percentage
 def default_input_percentage():
     class_name = input("Enter the name of the class: ")
     current_grade = float(input("Enter your Current Grade (%): "))
@@ -18,6 +19,7 @@ def default_input_percentage():
     return class_name, current_grade, final_worth, goal
 
 
+# Default input for points
 def default_input_points():
     class_name = input("Enter the name of the class: ")
     current_grade = float(input("Enter your Current Amount of Points: "))
@@ -28,6 +30,7 @@ def default_input_points():
     return class_name, current_grade, total_points, final_worth, goal
 
 
+# Creates pauses
 def end_pause():
     print('')
     input("Press enter to continue...")
@@ -55,7 +58,7 @@ while True:
 
         # TODO: store entries in sqlite3 database with class_name, and unique number
 
-        entry = final_percentage(class_name, current_grade, final_worth, goal)
+        entry = FinalPercentage(class_name, current_grade, final_worth, goal)
         entry.calculate_need_grd()
 
         entry.need_grd_print()
@@ -71,7 +74,7 @@ while True:
 
         # TODO: store entries in sqlite3 database with class_name, and unique number
 
-        entry = final_percentage_lowest_drop(class_name, current_grade, final_worth, goal, num_test, test_worth,
+        entry = FinalPercentageLowestDrop(class_name, current_grade, final_worth, goal, num_test, test_worth,
                                              test_avg, low_test)
         entry.calculate_need_grd()
 
@@ -81,7 +84,7 @@ while True:
     elif value == "B1":
         class_name, current_grade, total_points, final_worth, goal = default_input_points()
 
-        entry = final_points(class_name, current_grade, total_points, final_worth, goal)
+        entry = FinalPoints(class_name, current_grade, total_points, final_worth, goal)
         entry.calculate_need_grd()
 
         entry.need_grd_print()
@@ -93,7 +96,7 @@ while True:
         drop_test_worth = float(input("Enter Lowest Test/Quiz/Midterm Worth in Points: "))
         drop_test_score = float(input("Enter Lowest Test/Quiz/Midterm Score in Points: "))
 
-        entry = final_points_lowest_full_replacement(class_name, current_grade, total_points, final_worth, goal,
+        entry = FinalPointsLowestFullReplacement(class_name, current_grade, total_points, final_worth, goal,
                                                      drop_test_worth, drop_test_score)
         entry.calculate_need_grd()
 

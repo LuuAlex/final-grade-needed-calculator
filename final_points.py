@@ -1,7 +1,7 @@
-from final import final
+from final import Final
 
 
-class final_points(final):
+class FinalPoints(Final):
 
     def __init__(self, class_name, current_grade, total_points, final_worth, goal):
         self._class_name = class_name
@@ -20,7 +20,7 @@ class final_points(final):
             f"\nYou need {self._need_grade_point} points (or {self._need_grade} percent) on the final to get a {self._goal_point} point (or {self._goal} percent) overall grade.")
 
 
-class final_points_lowest_full_replacement(final_points):
+class FinalPointsLowestFullReplacement(FinalPoints):
 
     def __init__(self, class_name, current_grade, total_points, final_worth, goal, drop_test_worth, drop_test_score):
         super().__init__(class_name, current_grade, total_points, final_worth, goal)

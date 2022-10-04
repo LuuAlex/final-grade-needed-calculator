@@ -1,4 +1,4 @@
-class final:
+class Final:
 
     def need_grd_print(self):
         print(
