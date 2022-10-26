@@ -1,3 +1,5 @@
+# DEPRECIATED
+"""
 import json
 from flask import Blueprint, render_template, request
 
@@ -16,7 +18,7 @@ def get_post_javascript_data():
     return json.loads(jsdata)[0]
 
 
-"""
+
 @views.route("/json")
 def get_json():
     return jsonify({'id': 1})

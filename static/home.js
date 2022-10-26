@@ -6,7 +6,11 @@ function get_inputs() {
     }
 }
 
-$.post( "/postmethod", {
-    javascript_data: get_inputs()
+fetch('/get_data')
+    .then(function (response) {
+        return response.json();
+    }).then(function (text) {
+        console.log('GET response:');
+        console.log(text.greeting);
 });
 
